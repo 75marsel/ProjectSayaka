@@ -1,0 +1,53 @@
+[SPRITES_CHARACTER_SELECT]
+DIM: 72x92
+WIDTH: 72p
+HEIGHT: 92p
+BIT DEPTH: 32
+TYPE: PNG
+
+LOCATION: sayaka\sprites
+
+FOLDER CONTENTS:
+[0.png, 1.png, 2.png, 3.png, 4.png, 5.png]
+THEIR CONTENTS:
+[Warrior, Archer, Monk, Magician, Healer, Dark Magician]
+Different sprites of different class.
+
+[SPRITES_CHARACTER_MOVEMENT]
+DIM: 14x16
+WIDTH: 14p
+HEIGHT: 16p
+BIT DEPTH: 32
+TYPE: PNG
+
+LOCATION: sayaka\sprites\movement
+FOLDER CONTENTS:
+[up_1.png, up_2.png, down_1.png, down_2.png, left_1.png, left_2.png, right_1.png, right_2.png]
+CAN PUT ANY SPRITES OF CHOICE THAT CORRESPONDS TO MOVEMENT
+
+[SPRITES_CHARACTER_ENEMY]
+DIM: 93x93
+WIDTH: 93p
+HEIGHT: 93p
+BIT DEPTH: 32
+TYPE: PNG
+
+LOCATION: sayaka\sprites\enemy
+FOLDER CONTENTS:
+[0.png, 1.png, 2.png, 3.png, 4.png, 5.png, 0.png]
+CAN PUT ANY CONENTS AS UNIQUE ATTRIBUTES ARE NOT YET IMPLEMENTED
+
+[SPRITES_CHARACTER_CURRENT]
+DIM: 72x96
+WIDTH: 72p
+HEIGHT: 96p
+BIT DEPTH: 32
+TYPE: PNG
+
+LOCATION: sayaka\sprites
+
+FOLDER CONTENTS:
+[0.png, 1.png, 2.png, 3.png]
+THEIR CONTENTS:
+[Warrior, Archer, Healer, Dark Magician]
+Different sprites of different class.
