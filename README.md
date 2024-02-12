@@ -10,6 +10,7 @@ Language and Frameworks used:
 
 The image used are not mine and was only used for representation. The sprites are from Final Fantasy I GBA Version.
 This was during year 2020 where i still dont have experience in Pixel Art.
+All copyrighted images are removed from this repository and anyone is freely to use their own sprites and images that is fit to the original resolution.
 
 ## SCREENSHOTS
 
