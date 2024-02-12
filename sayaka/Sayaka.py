@@ -28,40 +28,9 @@ CURRENT_SKILL1 = "NONE"
 CURRENT_SKILL2 = "NONE"
 CURRENT_SPRITE = ""
 ENEMY_SPRITE = ""
-BUTTON_CSS = """
-                                        *{
-                                            background:red;
-                                            border-radius:60px                        
-                                        }
-                                        *:hover{
-                                            background: blue;
-                                            color: white;
-                                        }
-                                        """
-GLOBAL_CSS = """
-    *{
-font-family: pixelated;
-font-size:18px;
-background-image: url(resources/bg.jpeg);
-}
-QFrame{
-background: #333;
-}
-QPushButton{
-background:red;
-border-radius:60px
-}
-QToolButton{
-background:transparent;
-}
-QLabel{
-color:white;
-}
-QMessageBox QLabel{
-    background: transparent;
-    color: black;
-}
-    """
+BUTTON_CSS = "resources/css/button.css"
+GLOBAL_CSS = "resources/css/global.css"
+ACC_ABT_CSS = "resources/css/acc_abt.css"
     
     
 class Homepage(QMainWindow):
@@ -159,24 +128,17 @@ color: black;
             
     def start_account_window(self):
         self.new_window = Account()
-        self.new_window.setStyleSheet("""
-        *{
-font-family: pixelated;
-font-size:18px;
-background-image: url(resources/bg.jpeg);
-}                                      """)
+        
+        with open(ACC_ABT_CSS, 'r') as f:
+            self.new_window.setStyleSheet(f.read())
+        
         self.hide()
         self.new_window.show()
     
     def start_about_window(self):
         self.new_window = About()
-        self.new_window.setStyleSheet("""
-        *{
-font-family: pixelated;
-font-size:18px;
-background-image: url(resources/bg.jpeg);
-
-}                                      """)
+        with open(ACC_ABT_CSS, 'r') as f:
+            self.new_window.setStyleSheet(f.read())
         self.new_window.show()
 
 class Account(QMainWindow):
@@ -295,49 +257,15 @@ class Account(QMainWindow):
         ACCOUNT_STATUS = "OFFLINE"
         self.hide()
         self.new_window = Homepage()
-        self.new_window.setStyleSheet("""
-    *{
-font-family: pixelated;
-font-size:18px;
-background-image: url(resources/bg.jpeg);
-}
-QFrame{
-background: #333;
-}
-QPushButton{
-background:red;
-border-radius:60px
-}
-QToolButton{
-background:transparent;
-}
-QLabel{
-color:white;
-}
-    """)
+        with open(GLOBAL_CSS, 'r') as f:
+            self.new_window.setStyleSheet(f.read())
         self.new_window.show()
     def start_back_window(self):
         self.new_window = Homepage()
-        self.new_window.setStyleSheet("""
-    *{
-font-family: pixelated;
-font-size:18px;
-background-image: url(resources/bg.jpeg);
-}
-QFrame{
-background: #333;
-}
-QPushButton{
-background:red;
-border-radius:60px
-}
-QToolButton{
-background:transparent;
-}
-QLabel{
-color:white;
-}
-    """)
+        
+        with open(GLOBAL_CSS, 'r') as f:
+            self.new_window.setStyleSheet(f.read())
+        
         self.hide()
         self.new_window.show()
     def start_login_process(self):
@@ -360,26 +288,10 @@ color:white;
                 ACCOUNT_STATUS = "ONLINE"
                 self.hide()
                 self.new_window = Homepage()
-                self.new_window.setStyleSheet("""
-    *{
-font-family: pixelated;
-font-size:18px;
-background-image: url(resources/bg.jpeg);
-}
-QFrame{
-background: #333;
-}
-QPushButton{
-background:red;
-border-radius:60px
-}
-QToolButton{
-background:transparent;
-}
-QLabel{
-color:white;
-}
-    """)
+                
+                with open(GLOBAL_CSS, 'r') as f:
+                    self.new_window.setStyleSheet(f.read())
+                
                 self.new_window.show()
             elif LOGIN_KEY == 1:
                 print("LOGIN_KEY : 1 Error Username or Password")
@@ -446,7 +358,10 @@ class Game_Engine(QMainWindow):
         self.warriorframe.setGeometry(150,190,71,91)
         self.warriorbtn = QPushButton("WARRIOR",self)
         self.warriorbtn.setGeometry(150,290,71,23)
-        self.warriorbtn.setStyleSheet(BUTTON_CSS)
+        
+        with open(BUTTON_CSS, 'r') as f:
+            self.warriorbtn.setStyleSheet(f.read())
+            
         self.warriorbtn.clicked.connect(self.warrior_class)
         
         self.thiefframe = QLabel(self)
@@ -454,7 +369,10 @@ class Game_Engine(QMainWindow):
         self.thiefframe.setGeometry(240,190,71,91)
         self.thiefbtn = QPushButton("THIEF",self)
         self.thiefbtn.setGeometry(240,290,71,23)
-        self.thiefbtn.setStyleSheet(BUTTON_CSS)
+        
+        with open(BUTTON_CSS, 'r') as f:
+            self.thiefbtn.setStyleSheet(f.read())
+        
         self.thiefbtn.clicked.connect(self.thief_class)
         
         self.wmageframe = QLabel(self)
@@ -462,7 +380,10 @@ class Game_Engine(QMainWindow):
         self.wmageframe.setGeometry(330,190,70,91)
         self.wmagebtn = QPushButton("W-MAGE",self)
         self.wmagebtn.setGeometry(330,290,71,23)
-        self.wmagebtn.setStyleSheet(BUTTON_CSS)
+        
+        with open(BUTTON_CSS, 'r') as f:
+            self.wmagebtn.setStyleSheet(f.read())
+        
         self.wmagebtn.clicked.connect(self.wmage_class)
         
         self.bmageframe = QLabel(self)
@@ -470,7 +391,10 @@ class Game_Engine(QMainWindow):
         self.bmageframe.setGeometry(420,190,71,91)
         self.bmagebtn = QPushButton("B-MAGE",self)
         self.bmagebtn.setGeometry(420,290,71,23)
-        self.bmagebtn.setStyleSheet(BUTTON_CSS)
+        
+        with open(BUTTON_CSS, 'r') as f:
+            self.bmagebtn.setStyleSheet(f.read())
+        
         self.bmagebtn.clicked.connect(self.bmage_class)
         
         self.starticon = QToolButton(self)
@@ -484,8 +408,6 @@ class Game_Engine(QMainWindow):
     
     @pyqtSlot()
     def update(self):
-        
-        
         self.new_window = Overworld()
         self.new_window.show()
         self.hide()
@@ -526,7 +448,9 @@ class Start_Game_Engine(QMainWindow):
         self.counter = 0
         self.title = "Sayaka v1.4 20200319"
         self.damage = 5
-        self.setStyleSheet(GLOBAL_CSS)
+        
+        with open(GLOBAL_CSS, 'r') as f:
+            self.setStyleSheet(f.read())
         
         if CURRENT_CLASS == "WARRIOR":
             self.cast = "sprites/cast/0.png"
@@ -558,22 +482,34 @@ class Start_Game_Engine(QMainWindow):
         
         self.attack = QPushButton("ATTACK",self)
         self.attack.setGeometry(50,210,101,31)
-        self.attack.setStyleSheet(BUTTON_CSS)
+        
+        with open(BUTTON_CSS, 'r') as f:
+            self.attack.setStyleSheet(f.read())
+        
         self.attack.clicked.connect(self.attack_on_click)
         
         self.skill1 = QPushButton(CURRENT_SKILL1,self)
         self.skill1.setGeometry(180,210,101,31)
-        self.skill1.setStyleSheet(BUTTON_CSS)
+        
+        with open(BUTTON_CSS, 'r') as f:
+            self.skill1.setStyleSheet(f.read())
+        
         self.skill1.clicked.connect(self.s1_on_click)
         
         self.skill2 = QPushButton(CURRENT_SKILL2,self)
         self.skill2.setGeometry(50,260,101,31)
-        self.skill2.setStyleSheet(BUTTON_CSS)
+        
+        with open(BUTTON_CSS, 'r') as f:
+            self.skill2.setStyleSheet(f.read())
+        
         self.skill2.clicked.connect(self.s2_on_click)
         
         self.run = QPushButton("RUN",self)
         self.run.setGeometry(180,260,101,31)
-        self.run.setStyleSheet(BUTTON_CSS)
+        
+        with open(BUTTON_CSS, 'r') as f:
+            self.run.setStyleSheet(f.read())
+        
         self.run.clicked.connect(self.run_on_click)
         
         self.ansbox = QLineEdit("",self)
@@ -593,7 +529,10 @@ class Start_Game_Engine(QMainWindow):
         
         self.refbtn = QPushButton("REFRESH",self)
         self.refbtn.setGeometry(370,200,75,23)
-        self.refbtn.setStyleSheet(BUTTON_CSS)
+        
+        with open(BUTTON_CSS, 'r') as f:
+            self.refbtn.setStyleSheet(f.read())
+        
         self.refbtn.clicked.connect(self.refresh)
         
         self.frame2 = QFrame(self)
@@ -683,7 +622,9 @@ class Start_Game_Engine(QMainWindow):
                 self.hide()
                 self.new_window = Homepage()
                 self.new_window.show()
-                self.new_window.setStyleSheet(GLOBAL_CSS)
+                
+                with open(GLOBAL_CSS, 'r') as f:
+                    self.new_window.setStyleSheet(f.read())
              
     def attack_on_click(self):
         if self.ansbox.text() == '' or self.ansbox.text() != '':
@@ -829,7 +770,10 @@ class Overworld(QMainWindow):
         self.width = 555
         self.height = 371
         self.title = "Sayaka v0.9 09231 BETA"
-        self.setStyleSheet(GLOBAL_CSS)
+        
+        with open(GLOBAL_CSS, 'r') as f:
+            self.setStyleSheet(f.read())
+        
         self.PLYR_IMG = LAST_IMG
         self.gameUI()
 
@@ -951,6 +895,7 @@ class Overworld(QMainWindow):
 if __name__ == "__main__" or "__Accounts__":
     app = QApplication(sys.argv)
     ex = Homepage()
-    ex.setStyleSheet(GLOBAL_CSS)
+    with open(GLOBAL_CSS, 'r') as f:
+        ex.setStyleSheet(f.read())
     sys.exit(app.exec_())
     
