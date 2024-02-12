@@ -1,0 +1,22 @@
+*{
+    font-family: pixelated;
+    font-size:18px;
+    background-image: url(resources/bg.jpeg);
+    }
+    QFrame{
+    background: #333;
+    }
+    QPushButton{
+    background:red;
+    border-radius:60px
+    }
+    QToolButton{
+    background:transparent;
+    }
+    QLabel{
+    color:white;
+    }
+    QMessageBox QLabel{
+        background: transparent;
+        color: black;
+}

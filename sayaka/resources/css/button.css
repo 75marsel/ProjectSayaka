@@ -1,0 +1,8 @@
+*{
+    background:red;
+    border-radius:60px                        
+}
+*:hover{
+    background: blue;
+    color: white;
+}
